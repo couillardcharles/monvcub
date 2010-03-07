@@ -7,6 +7,6 @@ import org.restlet.resource.ServerResource;
 public class RessourceAccueil extends ServerResource {
 	@Get
 	public StringRepresentation represente() {
-		return new StringRepresentation("hello, world (from the cloud!)");
+		return new StringRepresentation("hello, world ");
 	}
 }
