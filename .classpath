@@ -7,7 +7,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.servlet.jar"/>
-	<classpathentry kind="lib" path="/Users/Charles/.m2/repository/org/hamcrest/hamcrest-all/1.1/hamcrest-all-1.1.jar"/>
-	<classpathentry kind="lib" path="/Users/Charles/Downloads/restlet-gae-2.0snapshot/lib/org.restlet.ext.net.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.net.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/htmlparser.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

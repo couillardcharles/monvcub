@@ -1,12 +1,13 @@
 package com.appspot.monvcub;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.restlet.Application;
 import org.restlet.Component;
@@ -37,6 +38,7 @@ public class TestsRessourceAccueil {
 	}
 
 	@Test
+	@Ignore
 	public void représente() throws IOException {
 		ClientResource ressource = new ClientResource("http://localhost:12121");
 		

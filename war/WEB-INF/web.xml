@@ -12,7 +12,10 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 			<param-value>com.appspot.monvcub.MonVCubApplication</param-value>
 		</init-param>
 	</servlet>
-
+	<context-param>
+		<param-name>org.restlet.clients</param-name>
+		<param-value>HTTP</param-value>
+	</context-param>
 	<!-- Catch all requests -->
 	<servlet-mapping>
 		<servlet-name>RestletServlet</servlet-name>
