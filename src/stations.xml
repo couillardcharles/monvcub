@@ -1,0 +1,29 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="defaut.css" type="text/css"/>
+<title>Mes stations</title>
+</head>
+<body>
+	<table>
+	<thead>
+		<th>Nom</th>
+		<th>Vélos disponibles</th>
+		<th>Places disponibles</th>
+	</thead>
+	<tbody>
+	#foreach ( $station in $stations)
+		<tr>
+		<td>$station.Nom</td>
+		#if ($station.estEnMaintenance())
+		<td colspan="2" class="en-maintenance">EN MAINTENANCE</td>
+		#else
+		<td class="#if ($station.VelosDisponibles > 0) ok #else ko #end">$station.VelosDisponibles</td>
+		<td class="#if ($station.PlacesDisponibles > 0) ok #else ko #end">$station.PlacesDisponibles</td>
+		#end
+		</tr>
+	#end
+	</tbody>
+	</table>
+</body>
+</html>

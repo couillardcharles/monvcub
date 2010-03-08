@@ -1,0 +1,30 @@
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+td,th {
+	border: 1px solid;
+	text-align: center;
+}
+
+th {
+	background-color:#7ABDD1;
+}
+
+td {
+	background-color:#DCF4FB;
+}
+
+.en-maintenance {
+	background-color: #D1D1D1;
+}
+
+.ok {
+	background-color:#D9FFD9;
+}
+
+.ko {
+	background-color:#FFB7B2;
+}

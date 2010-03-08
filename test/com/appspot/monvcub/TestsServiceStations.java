@@ -30,7 +30,7 @@ public class TestsServiceStations {
 		Station station = stations.get(0);
 
 		assertThat(station.getNom(), is("Meriadeck"));
-		assertThat(station.getVélosDisponibles() + station.getPlacesDisponibles(), is(20));
+		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(20));
 	}
 	
 	@Test

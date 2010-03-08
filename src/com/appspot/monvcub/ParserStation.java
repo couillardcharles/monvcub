@@ -11,7 +11,7 @@ public class ParserStation {
 		if (ligne.getColumnCount() == 5) {
 			résultat.setEnMaintenance(true);
 		} else {
-			résultat.setVélosDisponibles(Integer.parseInt(ligne.getColumns()[2].getStringText()));
+			résultat.setVelosDisponibles(Integer.parseInt(ligne.getColumns()[2].getStringText()));
 			résultat.setPlacesDisponibles(Integer.parseInt(ligne.getColumns()[3].getStringText()));
 		}
 		return résultat;

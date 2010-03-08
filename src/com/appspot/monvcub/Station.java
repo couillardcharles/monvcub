@@ -6,7 +6,7 @@ public class Station {
 		return nom;
 	}
 
-	public int getVélosDisponibles() {
+	public int getVelosDisponibles() {
 		return vélosDisponibles;
 	}
 
@@ -18,7 +18,7 @@ public class Station {
 		this.nom = nom;
 	}
 
-	public void setVélosDisponibles(int nombre) {
+	public void setVelosDisponibles(int nombre) {
 		vélosDisponibles = nombre;
 	}
 
