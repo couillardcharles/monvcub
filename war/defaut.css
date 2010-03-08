@@ -1,33 +1,10 @@
 body {
-	background-color: #ddd; /* Background color */
-	color: #222; /* Foreground color used for text */
+	background-color: #ddd;
+	color: #222;
 	font-family: Helvetica;
 	font-size: 14px;
 	margin: 0;
-	/* Amount of negative space around the outside of the body */
 	padding: 0;
-	/* Amount of negative space around the inside of the body */
-}
-
-table {
-	margin: 1px;
-	padding: 0;
-	border: 1px solid;
-	border-collapse: collapse;
-	border-spacing: 0px;
-}
-
-td,th {
-	border: 1px solid;
-	text-align: center;
-}
-
-th {
-	background-color: #7ABDD1;
-}
-
-td {
-	background-color: #DCF4FB;
 }
 
 .en-maintenance {
