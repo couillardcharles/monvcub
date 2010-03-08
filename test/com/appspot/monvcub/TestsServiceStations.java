@@ -34,14 +34,14 @@ public class TestsServiceStations {
 	}
 	
 	@Test
-	public void peutFiltrerLesStations() throws ParserException, IOException {
+	public void peutFiltrerLesStationsEtLesOrdonnées() throws ParserException, IOException {
 		List<String> stationsPréférées = Lists.newArrayList("Cauderan", "Meriadeck");
 		
 		List<Station> stations = new ServiceStations().getStations(stationsPréférées);
 		
 		assertThat(stations.size(), is(2));
-		assertThat(stations.get(0).getNom(), is("Meriadeck"));
-		assertThat(stations.get(1).getNom(), is("Cauderan"));
+		assertThat(stations.get(0).getNom(), is("Cauderan"));
+		assertThat(stations.get(1).getNom(), is("Meriadeck"));
 	}
 
 	private List<Station> stations;

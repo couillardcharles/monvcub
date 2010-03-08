@@ -1,6 +1,8 @@
 package com.appspot.monvcub;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.htmlparser.Parser;
@@ -18,7 +20,7 @@ import com.google.appengine.repackaged.com.google.common.collect.Lists;
 
 public class ServiceStations {
 
-	public List<Station> getStations() throws IOException, ParserException {
+	protected List<Station> getStations() throws IOException, ParserException {
 		List<Station> résultat = Lists.newArrayList();
 
 		ClientResource ressource = new ClientResource("http://www.vcub.fr/stations/detail/nom/");
@@ -37,12 +39,19 @@ public class ServiceStations {
 	}
 
 	public List<Station> getStations(final List<String> stationsPréférées) throws ParserException, IOException {
-		return Lists.newArrayList(Iterables.filter(getStations(), new Predicate<Station>() {	
+		List<Station> résultat = Lists.newArrayList(Iterables.filter(getStations(), new Predicate<Station>() {	
 			@Override
 			public boolean apply(Station station) {
 				return stationsPréférées.contains(station.getNom());
 			}
 		}));
+		Collections.sort(résultat, new Comparator<Station>() {
+			@Override
+			public int compare(Station o1, Station o2) {
+				return o1.getNom().compareTo(o2.getNom());
+			}
+		});
+		return résultat;
 	}
 
 }
