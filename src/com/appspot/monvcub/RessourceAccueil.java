@@ -20,7 +20,7 @@ public class RessourceAccueil extends ServerResource {
 	@Get
 	public Representation represente() throws ParserException, IOException {
 		Map<String, Object> données = Maps.newHashMap();
-		données.put("stations", new ServiceStations().getStations(getStationsPréférées()));
+		données.put("stations", new ServiceStations().getStations());
 		TemplateRepresentation templateRepresentation = new TemplateRepresentation("stations.xml", données, MediaType.TEXT_HTML);
 		configureEngine(templateRepresentation.getEngine());
 		return templateRepresentation;

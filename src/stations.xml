@@ -1,30 +1,29 @@
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" content="user-scalable=no, width=device-width" />
-<link rel="stylesheet" href="defaut.css" type="text/css"/>
-<title>Mes stations</title>
-</head>
-<body>
-	<table>
-	<thead>
-		<th>Nom</th>
-		<th>Vélos disponibles</th>
-		<th>Places disponibles</th>
-	</thead>
-	<tbody>
-	#foreach ( $station in $stations)
-		<tr>
-		<td>$station.Nom</td>
-		#if ($station.estEnMaintenance())
-		<td colspan="2" class="en-maintenance">EN MAINTENANCE</td>
-		#else
-		<td class="#if ($station.VelosDisponibles > 0) ok #else ko #end">$station.VelosDisponibles</td>
-		<td class="#if ($station.PlacesDisponibles > 0) ok #else ko #end">$station.PlacesDisponibles</td>
-		#end
-		</tr>
-	#end
-	</tbody>
-	</table>
-</body>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<link rel="stylesheet" href="defaut.css" type="text/css" />
+		<title>Mes stations</title>
+	</head>
+	<body>
+		<div id="header">
+			<h1>Stations</h1>
+		</div>
+		<div id="content">
+			<ul>
+				#foreach ( $station in $stations)
+				<li>
+					<a href="$station.nom">$station.Nom</a>
+					<div class="statut">
+						#if ($station.estEnMaintenance())
+							<span class="en-maintenance">Maintenance</span>
+						#else
+							<span class="#if ($station.VelosDisponibles > 0) ok #else ko #end">$station.VelosDisponibles</span><span class="#if ($station.PlacesDisponibles > 0) ok #else ko #end">$station.PlacesDisponibles</span>
+						#end
+					</div>
+				</li>
+				#end
+			</ul>
+		</div>
+	</body>
 </html>
