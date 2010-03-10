@@ -61,3 +61,14 @@ test("Charge bien les stations préférées", function() {
 	equals(uriAppelée,"/mes-stations?stations=1,8");
 	equals($("#mes-stations").text(), "le contenu");
 });
+
+test("Peut recharger", function() {
+	contenuARetourner = "le contenu rechargé";
+	localStorage.stations = "3,8";
+	
+	$("#boutonRecharger a").click();
+	
+	equals(uriAppelée,"/mes-stations?stations=3,8");
+	equals($("#mes-stations").text(), "le contenu rechargé");
+});
+

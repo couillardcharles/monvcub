@@ -8,17 +8,22 @@
 		<title>Mes stations</title>
 	</head>
 	<body>
+		<script id="template-loader" type="text/html">
+		<ul>
+			<li>
+				<img src="images/ajax-loader.gif" />
+			</li>
+		</ul>
+		</script>
+		
 		<div id="header">
 			<h1><a href="#">Mes stations</a></h1>
 			<div id="boutonMenu" class="boutonAGauche"><a href="stations">Menu</a></div>
+			<div id="boutonRecharger" class="boutonADroite"><a href="#">Rech.</a></div>
 		</div>
 		<div id="content">
 			<div id="mes-stations">
-				<ul>
-					<li>
-						<img src="images/ajax-loader.gif" />
-					</li>
-				</ul>
+		
 			</div>
 		</div>
 	</body>

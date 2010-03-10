@@ -49,12 +49,28 @@ body {
     line-height: 28px;
 }
 
-#header .boutonAGauche a {
+#header .boutonADroite {
+    position: absolute;
+    top: 7px;
+    right: 6px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+    line-height: 28px;
+}
+
+#header div a {
 	text-decoration : none;
 	color : white;
 }
 
 #header #boutonMenu {
+    border-width: 0 8px 0 8px;
+    -webkit-border-image: url(images/button.png) 0 8 0 8;
+}
+
+#header #boutonRecharger {
     border-width: 0 8px 0 8px;
     -webkit-border-image: url(images/button.png) 0 8 0 8;
 }
