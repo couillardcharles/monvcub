@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<script src="js/jquery.last.min.js"></script>
+		<script src="js/mes-stations.js"></script>
+		<link rel="stylesheet" href="defaut.css" type="text/css" />
+		<title>Mes stations</title>
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="#">Mes stations</a></h1>
+			<div id="boutonMenu" class="boutonAGauche"><a href="stations">Menu</a></div>
+		</div>
+		<div id="content">
+			<div id="mes-stations">
+				<ul>
+					<li>
+						<img src="images/ajax-loader.gif" />
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

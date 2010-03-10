@@ -1,0 +1,15 @@
+<ul>
+	#foreach ( $station in $stations)
+	<li>
+		<a href="#">$station.Nom</a>
+		<div class="statut">
+			#if ($station.estEnMaintenance())
+			<span class="en-maintenance">Maint.</span>
+			#else
+			<span class="#if ($station.VelosDisponibles > 0) ok #else ko #end">$station.VelosDisponibles</span>
+			<span class="#if ($station.PlacesDisponibles > 0) ok #else ko #end">$station.PlacesDisponibles</span>
+			#end
+		</div>
+	</li>
+	#end
+</ul>

@@ -27,15 +27,16 @@ public class TestsServiceStations {
 
 	@Test
 	public void peutRécupérerLeDétailDesStations() {
-		Station station = stations.get(0);
+		Station station = stations.get(stations.size()-1);
 
-		assertThat(station.getNom(), is("Meriadeck"));
-		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(20));
+		assertThat(station.getNom(), is("Xaintrailles"));
+		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(15));
+		assertThat(station.getIdentifiant(), is(26));
 	}
 	
 	@Test
 	public void peutFiltrerLesStationsEtLesOrdonnées() throws ParserException, IOException {
-		List<String> stationsPréférées = Lists.newArrayList("Cauderan", "Meriadeck");
+		List<Integer> stationsPréférées = Lists.newArrayList(1, 31);
 		
 		List<Station> stations = new ServiceStations().getStations(stationsPréférées);
 		

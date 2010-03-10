@@ -9,8 +9,10 @@ public class MonVCubApplication extends Application {
 	public Restlet createInboundRoot() {
 		Router router = new Router(getContext());
 
-		router.attachDefault(RessourceAccueil.class);
-
+		router.attach("/", RessourceAccueil.class);
+		router.attach("/stations", RessourceStations.class);
+		router.attach("/mes-stations", RessourceMesStations.class);
+		
 		return router;
 	}
 }

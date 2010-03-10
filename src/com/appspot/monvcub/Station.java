@@ -34,7 +34,16 @@ public class Station {
 		return maintenance;
 	}
 
+	public int getIdentifiant() {
+		return identifiant;
+	}
+
+	public void setIdentifiant(int identifiant) {
+		this.identifiant = identifiant;
+	}
+
 	private String nom;
+	private int identifiant;
 	private int vélosDisponibles;
 	private int placesDisponibles;
 	private boolean maintenance;

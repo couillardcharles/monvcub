@@ -1,35 +1,21 @@
 package com.appspot.monvcub;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
-import org.htmlparser.util.ParserException;
 import org.restlet.data.MediaType;
 import org.restlet.ext.velocity.TemplateRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
-import com.google.appengine.repackaged.com.google.common.collect.Lists;
-import com.google.appengine.repackaged.com.google.common.collect.Maps;
-
 public class RessourceAccueil extends ServerResource {
 	@Get
-	public Representation represente() throws ParserException, IOException {
-		Map<String, Object> données = Maps.newHashMap();
-		données.put("stations", new ServiceStations().getStations(getStationsPréférées()));
-		TemplateRepresentation templateRepresentation = new TemplateRepresentation("stations.xml", données, MediaType.TEXT_HTML);
+	public Representation represente() {
+		TemplateRepresentation templateRepresentation = new TemplateRepresentation("accueil.xml", MediaType.TEXT_HTML);
 		configureEngine(templateRepresentation.getEngine());
 		return templateRepresentation;
 	}
 
-	private List<String> getStationsPréférées() {
-		return Lists.newArrayList("Cauderan", "Grand Lebrun", "Barriere St Genes", "Bergonie");
-	}
-	
 	private void configureEngine(VelocityEngine engine) {
         engine.setProperty(RuntimeConstants.RESOURCE_LOADER, "class");
         engine.setProperty("class.resource.loader.class",

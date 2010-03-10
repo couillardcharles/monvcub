@@ -20,18 +20,48 @@ body {
 }
 
 #header h1 {
-	margin: 0;
-	background-color: #ccc;
-	border-bottom: 1px solid #666;
-	color: #222;
-	display: block;
-	font-size: 20px;
-	font-weight: bold;
-	padding: 10px 0;
-	text-align: center;
-	text-shadow: 0px 1px 0px #fff;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc),
-		to(#999) );
+    margin: 0;
+    padding: 0;
+}
+#header h1 a {
+    background-color: #ccc;
+    border-bottom: 1px solid #666;
+    color: #222;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, 
+                                       from(#ccc), to(#999));
+}
+
+#header .boutonAGauche {
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
+    line-height: 28px;
+}
+
+#header .boutonAGauche a {
+	text-decoration : none;
+	color : white;
+}
+
+#header #boutonMenu {
+    border-width: 0 8px 0 8px;
+    -webkit-border-image: url(images/button.png) 0 8 0 8;
+}
+
+#header #boutonRetour {
+    border-width: 0 8px 0 14px;
+    -webkit-border-image: url(images/back_button.png) 0 8 0 14;
 }
 
 #content {
@@ -69,6 +99,12 @@ body {
 	color: #222222;
 }
 
+#content ul li img {
+	margin: 0 auto;
+	width: 64px;
+	display: block; 
+}
+
 #content .statut {
 	float: right;
 	text-align: left;
@@ -86,4 +122,16 @@ body {
 
 #content .statut span + span{
 	right:30px;
+}
+
+#content img {
+	text-align: center;
+}
+
+#content li.selectionnee {
+	background-color : #EB6100;
+}
+
+#content li.selectionnee a{
+	color : white;
 }

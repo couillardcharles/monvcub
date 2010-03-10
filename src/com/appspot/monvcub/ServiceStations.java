@@ -34,23 +34,22 @@ public class ServiceStations {
 				résultat.add(ParserStation.parse(ligne));
 			}
 		}
-
-		return résultat;
-	}
-
-	public List<Station> getStations(final List<String> stationsPréférées) throws ParserException, IOException {
-		List<Station> résultat = Lists.newArrayList(Iterables.filter(getStations(), new Predicate<Station>() {	
-			@Override
-			public boolean apply(Station station) {
-				return stationsPréférées.contains(station.getNom());
-			}
-		}));
 		Collections.sort(résultat, new Comparator<Station>() {
 			@Override
 			public int compare(Station o1, Station o2) {
 				return o1.getNom().compareTo(o2.getNom());
 			}
 		});
+		return résultat;
+	}
+
+	public List<Station> getStations(final List<Integer> stationsPréférées) throws ParserException, IOException {
+		List<Station> résultat = Lists.newArrayList(Iterables.filter(getStations(), new Predicate<Station>() {	
+			@Override
+			public boolean apply(Station station) {
+				return stationsPréférées.contains(station.getIdentifiant());
+			}
+		}));
 		return résultat;
 	}
 
