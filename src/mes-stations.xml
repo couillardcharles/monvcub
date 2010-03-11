@@ -1,4 +1,7 @@
 <ul>
+	#if ( $stations.size() == 0)
+	<li>Aucune station sélectionnée. Cliquer sur Menu.</li>
+	#else
 	#foreach ( $station in $stations)
 	<li>
 		<a href="#">$station.Nom</a>
@@ -11,5 +14,6 @@
 			#end
 		</div>
 	</li>
+	#end
 	#end
 </ul>
