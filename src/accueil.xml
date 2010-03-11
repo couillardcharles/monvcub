@@ -18,7 +18,7 @@
 		
 		<div id="header">
 			<h1><a href="#">Mes stations</a></h1>
-			<div id="boutonMenu" class="boutonAGauche"><a href="stations">Menu</a></div>
+			<div id="boutonMenu" class="boutonAGauche"><a href="/stations">Menu</a></div>
 			<div id="boutonRecharger" class="boutonADroite"><a href="#">Rech.</a></div>
 		</div>
 		<div id="content">
