@@ -1,8 +1,9 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.rest;
 
 import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
+
 
 public class MonVCubApplication extends Application {
 	@Override

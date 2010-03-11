@@ -1,4 +1,4 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.stations;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -20,12 +20,10 @@ import com.google.appengine.repackaged.com.google.common.collect.Lists;
 
 public class ServiceStations {
 
-	protected List<Station> getStations() throws IOException, ParserException {
+	public List<Station> getStations() throws IOException, ParserException {
 		List<Station> résultat = Lists.newArrayList();
 
-		ClientResource ressource = new ClientResource("http://www.vcub.fr/stations/detail/nom/");
-		Representation representation = ressource.get();
-		Parser parser = Parser.createParser(representation.getText(), "UTF-8");
+		Parser parser = Parser.createParser(getHtmlStations(), "UTF-8");
 		NodeList tables = parser.parse(new CssSelectorNodeFilter(".stations-list"));
 		TableTag table = (TableTag) tables.elementAt(0);
 
@@ -41,6 +39,12 @@ public class ServiceStations {
 			}
 		});
 		return résultat;
+	}
+
+	private String getHtmlStations() throws IOException {
+		ClientResource ressource = new ClientResource("http://www.vcub.fr/stations/detail/nom/");
+		Representation representation = ressource.get();
+		return representation.getText();
 	}
 
 	public List<Station> getStations(final List<Integer> stationsPréférées) throws ParserException, IOException {

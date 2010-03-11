@@ -1,4 +1,4 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.rest;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,6 +14,7 @@ import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
+import com.appspot.monvcub.stations.ServiceStations;
 import com.google.appengine.repackaged.com.google.common.base.Function;
 import com.google.appengine.repackaged.com.google.common.collect.Lists;
 import com.google.appengine.repackaged.com.google.common.collect.Maps;

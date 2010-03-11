@@ -13,5 +13,7 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.apache.velocity.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.net.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.servlet.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/httpunit-1.6.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/jtidy-4aug2000r7-dev.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

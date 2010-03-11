@@ -1,4 +1,4 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.stations;
 
 import org.htmlparser.tags.TableRow;
 

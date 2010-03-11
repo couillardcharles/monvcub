@@ -1,4 +1,4 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.rest;
 
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;

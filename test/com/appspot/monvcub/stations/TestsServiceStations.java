@@ -1,4 +1,4 @@
-package com.appspot.monvcub;
+package com.appspot.monvcub.stations;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
@@ -10,6 +10,8 @@ import org.htmlparser.util.ParserException;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.appspot.monvcub.stations.ServiceStations;
+import com.appspot.monvcub.stations.Station;
 import com.google.appengine.repackaged.com.google.common.collect.Lists;
 
 public class TestsServiceStations {
