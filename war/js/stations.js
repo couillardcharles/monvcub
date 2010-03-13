@@ -1,6 +1,7 @@
 $(function() {
-	selectionnerStations();
-	$("li a").click(function(e) {
+	$("#boutonRetour").hide();
+	chargerMesStations();
+	$("#stations li a").live("click", function(e) {
 		var li = $(e.target).closest("li");
 		var identifiant = li.attr("identifiant");
 		localStorage.stations = (localStorage.stations || "");
@@ -16,7 +17,28 @@ $(function() {
 		selectionnerStations();
 		return false;
 	});
+	$("#boutonRecharger a").click(function() {
+		chargerMesStations();
+	});
+	$("#boutonMenu a").click(function() {
+		toggle("Stations");
+		chargerStations();
+		return false;
+	});
+	$("#boutonRetour a").click(function() {
+		toggle("Mes stations");
+		chargerMesStations();
+		return false;
+	});
 });
+
+function toggle(titre) {
+	$("#boutonRetour").toggle();
+	$("#boutonMenu").toggle();
+	$("#boutonRecharger").toggle();
+	$("title").text(titre);
+	$("#header h1 a").text(titre)
+}
 
 function selectionnerStations() {
 	$("li").removeClass("selectionnee");
@@ -27,6 +49,24 @@ function selectionnerStations() {
 		}
 	}
 };
+
+function chargerMesStations() {
+	$("#stations").hide();
+	$("#mes-stations").html($("#template-loader").html()).show();
+	localStorage.stations = (localStorage.stations || "");
+	$.get("/mes-stations?stations=" + localStorage.stations, function(data) {
+		$("#mes-stations").html(data);
+	});
+};
+
+function chargerStations() {
+	$("#mes-stations").hide();
+	$("#stations").html($("#template-loader").html()).show();
+	$.get("/stations", function(data) {
+		$("#stations").html(data);
+		selectionnerStations();
+	});
+}
 
 function getIndex(tableau, element) {
 	for (var i = 0; i < tableau.length; i++) {

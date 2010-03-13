@@ -65,7 +65,6 @@ public class TestsRessources {
 		WebResponse stations = new WebConversation().getResponse("http://localhost:12121/stations");
 
 		assertThat(stations, notNullValue());
-		assertThat(stations.getTitle(), is("Stations disponibles"));
 		assertThat(stations.getLinkWith("Meriadeck"), notNullValue());
 		assertThat(stations.getLinkWith("Cauderan"), notNullValue());
 	}

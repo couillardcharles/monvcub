@@ -1,25 +1,7 @@
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="user-scalable=no, width=device-width" />
-		<link rel="stylesheet" href="defaut.css" type="text/css" />
-		<script src="js/jquery.last.min.js"></script>
-		<script src="js/stations.js"></script>
-		<title>Stations disponibles</title>
-	</head>
-	<body>
-		<div id="header">
-			<h1><a href="#">Stations</a></h1>
-			<div id="boutonRetour" class="boutonAGauche"><a href="/">Retour</a></div>
-		</div>
-		<div id="content">
-			<ul>
-				#foreach ( $station in $stations)
-				<li identifiant="$station.identifiant">
-					<a href="#">$station.Nom</a>
-				</li>
-				#end
-			</ul>
-		</div>
-	</body>
-</html>
+<ul>
+	#foreach ( $station in $stations)
+	<li identifiant="$station.identifiant">
+		<a href="#">$station.Nom</a>
+	</li>
+	#end
+</ul>

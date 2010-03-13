@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="qunit.css" type="text/css" />
         <script type="text/javascript" src="../jquery.last.min.js"></script>
         <script type="text/javascript" src="../stations.js"></script>
-        <script type="text/javascript" src="../mes-stations.js"></script>
         <script type="text/javascript" src="qunit.js"></script>
     </head>
     <body>
@@ -16,23 +15,45 @@
         <ol id="qunit-tests">
         </ol>
         
+        <script id="template-stations" type="text/html">
+		    <ul>
+	        	<li identifiant="1">
+	        		<a href="#"></a>
+	        	</li>
+	        	<li identifiant="2">
+	        		<a href="#"></a>
+	        	</li>
+	        	<li identifiant="3">
+	        		<a href="#"></a>
+	        	</li>
+	        </ul>
+	    </script>
+        
         <script type="text/javascript" src="stations-tests.js">
         </script>
         
-        <ul>
-        	<li identifiant="1">
-        		<a href="#"></a>
-        	</li>
-        	<li identifiant="2">
-        		<a href="#"></a>
-        	</li>
-        	<li identifiant="3">
-        		<a href="#"></a>
-        	</li>
-        </ul>
+        <div id="stations">
+	        <ul>
+	        	<li identifiant="1">
+	        		<a href="#"></a>
+	        	</li>
+	        	<li identifiant="2">
+	        		<a href="#"></a>
+	        	</li>
+	        	<li identifiant="3">
+	        		<a href="#"></a>
+	        	</li>
+	        </ul>
+	        </div>
         
     	<div id="mes-stations"></div>
     	
     	<div id="boutonRecharger"><a href="#"></a></div>
+    	<div id="boutonMenu"><a href="#"></a></div>
+    	<div id="boutonRetour"><a href="#"></a></div>
+    	
+    	<div id="header">
+			<h1><a href="#">Mes stations</a></h1>
+		</div>
     </body>
 </html>
