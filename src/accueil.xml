@@ -24,6 +24,7 @@
 			<div id="boutonMenu" class="boutonAGauche"><a href="#">Menu</a></div>
 			<div id="boutonRecharger" class="boutonADroite"><a href="#">Rech.</a></div>
 			<div id="boutonRetour" class="boutonAGauche"><a href="#">Retour</a></div>
+<!--			<div id="boutonCarte" class="boutonADroite"><a href="/stations/carte">Carte</a></div>-->
 		</div>
 		<div id="content">
 			<div id="mes-stations">
