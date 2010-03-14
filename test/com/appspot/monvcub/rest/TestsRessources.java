@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.restlet.Application;
 import org.restlet.Component;
@@ -40,17 +39,17 @@ public class TestsRessources {
 	}
 
 	@Test
-	@Ignore
 	public void représenteBienLAccueil() throws SAXException, IOException {
 		WebResponse accueil = new WebConversation().getResponse("http://localhost:12121");
 
 		assertThat(accueil, notNullValue());
 		assertThat(accueil.getTitle(), is("Mes stations"));
-		assertThat(accueil.getLinks().length, is(3));
+		assertThat(accueil.getElementWithID("boutonRecharger"), notNullValue());
+		assertThat(accueil.getElementWithID("boutonMenu"), notNullValue());
+		assertThat(accueil.getElementWithID("boutonRetour"), notNullValue());
 	}
 
 	@Test
-	@Ignore
 	public void représenteBienMesStations() throws IOException, SAXException {
 		WebResponse mesStations = new WebConversation().getResponse("http://localhost:12121/mes-stations?stations=1");
 
@@ -60,7 +59,6 @@ public class TestsRessources {
 	}
 
 	@Test
-	@Ignore
 	public void représenteBienLesStations() throws IOException, SAXException {
 		WebResponse stations = new WebConversation().getResponse("http://localhost:12121/stations");
 

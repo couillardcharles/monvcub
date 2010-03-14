@@ -10,7 +10,6 @@ QUnit.reset = function() {
 	$("li").removeClass("selectionnee");
 	$("#boutonMenu").show();
 	$("#boutonRetour").hide();
-	$("#boutonRecharger").show();
 }
 
 test("Ajoute bien la classe selectionnee sur les stations préférés", function() {
@@ -69,7 +68,7 @@ test("Peut recharger", function() {
 	contenuARetourner = "le contenu rechargé";
 	localStorage.stations = "3,8";
 	
-	$("#boutonRecharger a").click();
+	$("#boutonADroite a").click();
 	
 	equals(uriAppelée,"/mes-stations?stations=3,8");
 	equals($("#mes-stations").text(), "le contenu rechargé");
@@ -84,7 +83,6 @@ test("Un click sur menu cache les boutons menu et recharger et affiche le bouton
 	$("#boutonMenu a").click();
 	
 	ok($("#boutonMenu").is(":hidden"));
-	ok($("#boutonRecharger").is(":hidden"));
 	ok($("#boutonRetour").is(":visible"));
 	equals($("title").text(), "Stations");
 	equals($("#header h1 a").text(), "Stations");
@@ -96,7 +94,7 @@ test("Un click sur retour cache le bouton retour et affiche menu et recharger", 
 	$("#boutonRetour a").click();
 	
 	ok($("#boutonMenu").is(":visible"));
-	ok($("#boutonRecharger").is(":visible"));
+	ok($("#boutonADroite").is(":visible"));
 	ok($("#boutonRetour").is(":hidden"));
 	equals($("title").text(), "Mes stations");
 	equals($("#header h1 a").text(), "Mes stations");
@@ -137,4 +135,22 @@ test("Un click sur retour affiche bien mes stations", function() {
 	ok($("#mes-stations").is(":visible"));
 });
 
+test("Initialise bien le texte du bouton à droite", function() {
+	equals($("#boutonADroite a").text(), "Rech.");
+});
 
+
+test("Change le texte du bouton à droite quand click sur le menu", function() {
+	$("#boutonMenu a").click();
+	
+	equals($("#boutonADroite a").text(), "Plan");
+});
+
+test("Charge bien la carte", function() {
+	$("#boutonMenu a").click();
+	$("#boutonADroite a").click();
+	
+	ok($("#carte").is(":visible"));
+	ok($("#content").is(":hidden"));
+	equals($("#boutonADroite a").text(), "Menu");
+});

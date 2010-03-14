@@ -17,9 +17,6 @@ $(function() {
 		selectionnerStations();
 		return false;
 	});
-	$("#boutonRecharger a").click(function() {
-		chargerMesStations();
-	});
 	$("#boutonMenu a").click(function() {
 		toggle("Stations");
 		chargerStations();
@@ -35,7 +32,6 @@ $(function() {
 function toggle(titre) {
 	$("#boutonRetour").toggle();
 	$("#boutonMenu").toggle();
-	$("#boutonRecharger").toggle();
 	$("title").text(titre);
 	$("#header h1 a").text(titre)
 }
@@ -51,8 +47,13 @@ function selectionnerStations() {
 };
 
 function chargerMesStations() {
+	$("#content").show();
+	$("#carte").hide();
 	$("#stations").hide();
 	$("#mes-stations").html($("#template-loader").html()).show();
+	$("#boutonADroite a").text("Rech.").unbind().click(function() {
+		chargerMesStations();
+	});
 	localStorage.stations = (localStorage.stations || "");
 	$.get("/mes-stations?stations=" + localStorage.stations, function(data) {
 		$("#mes-stations").html(data);
@@ -60,12 +61,28 @@ function chargerMesStations() {
 };
 
 function chargerStations() {
+	$("#content").show();
+	$("#carte").hide();
 	$("#mes-stations").hide();
+	$("#boutonADroite a").text("Plan").unbind().click(function() {
+		chargerCarte();
+	});
 	$("#stations").html($("#template-loader").html()).show();
 	$.get("/stations", function(data) {
 		$("#stations").html(data);
 		selectionnerStations();
 	});
+}
+
+function chargerCarte() {
+	$("#carte").show();
+	$("#content").hide();
+	$("#boutonADroite a").text("Menu").unbind().click(function() {
+		chargerStations();
+	});
+	var latlng = new google.maps.LatLng(44.835178,-0.577126);
+	var myOptions = {zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP};
+	var map = new google.maps.Map(document.getElementById("carte"), myOptions);
 }
 
 function getIndex(tableau, element) {
