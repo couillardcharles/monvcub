@@ -1,6 +1,12 @@
 package com.appspot.monvcub.stations;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.htmlparser.tags.TableRow;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ParserStation {
 
@@ -18,4 +24,41 @@ public class ParserStation {
 		return résultat;
 	}
 
+	public JSONArray parse(String jsonBrut) throws JSONException {
+		JSONArray résultat = new JSONArray();
+		JSONArray arrayBrut = new JSONArray(jsonBrut);
+		for (int i = 0; i < arrayBrut.length(); i++) {
+			JSONObject jsonObject = parse(arrayBrut.getJSONObject(i));
+			résultat.put(jsonObject);
+		}
+		return résultat;
+	}
+
+	protected JSONObject parse(JSONObject stationJSon) throws JSONException {
+		JSONObject résultat = new JSONObject();
+		résultat.put("latitude", stationJSon.get("latitude"));
+		résultat.put("longitude", stationJSon.get("longitude"));
+		String texte = stationJSon.get("text").toString();
+		System.out.println(texte);
+		résultat.put("titre", getNomStation(texte));
+		résultat.put("adresse", getAdresseStation(texte));
+		return résultat;
+	}
+
+	private String getAdresseStation(String texte) {
+		return getTexte(texte, PATTERN_ADRESSE_STATION);
+	}
+
+	private String getNomStation(String texte) {
+		return getTexte(texte, PATTERN_NOM_STATION);
+	}
+
+	private String getTexte(String texte, Pattern pattern) {
+		Matcher matcher = pattern.matcher(texte);
+		matcher.find();
+		return matcher.group(1);
+	}
+
+	public static final Pattern PATTERN_NOM_STATION = Pattern.compile("#\\d* \\- (.*)</div>\\n.*gmap\\-adresse");
+	public static final Pattern PATTERN_ADRESSE_STATION = Pattern.compile("<div class=.*gmap\\-adresse.*>(.*)</div>(<div.*gmap\\-velos|<p>)");
 }

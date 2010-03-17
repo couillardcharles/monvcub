@@ -19,6 +19,10 @@ body {
 	color: red;
 }
 
+h1 {
+	font-size : 16px;
+}
+
 #header h1 {
     margin: 0;
     padding: 0;
@@ -60,6 +64,7 @@ body {
     line-height: 28px;
     border-width: 0 8px 0 8px;
     -webkit-border-image: url(images/button.png) 0 8 0 8;
+    -moz-border-image: url(images/button.png) 0 8 0 8;
 }
 
 #header div a {
@@ -70,11 +75,13 @@ body {
 #header #boutonMenu {
     border-width: 0 8px 0 8px;
     -webkit-border-image: url(images/button.png) 0 8 0 8;
+    -moz-border-image: url(images/button.png) 0 8 0 8;
 }
 
 #header #boutonRetour {
     border-width: 0 8px 0 14px;
     -webkit-border-image: url(images/back_button.png) 0 8 0 14;
+    -moz-border-image: url(images/back_button.png) 0 8 0 14;
 }
 
 #content {
@@ -100,11 +107,15 @@ body {
 #content ul li:first-child {
 	-webkit-border-top-left-radius: 8px;
 	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft : 8px;
+	-moz-border-radius-topright : 8px;
 }
 
 #content ul li:last-child {
 	-webkit-border-bottom-left-radius: 8px;
 	-webkit-border-bottom-right-radius: 8px;
+	-moz-border-radius-bottomleft : 8px;
+	-moz-border-radius-bottomright : 8px;
 }
 
 #content ul li a {

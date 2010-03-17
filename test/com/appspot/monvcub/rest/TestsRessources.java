@@ -11,6 +11,8 @@ import org.junit.Test;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.data.Protocol;
+import org.restlet.data.Status;
+import org.restlet.resource.ClientResource;
 import org.xml.sax.SAXException;
 
 import com.meterware.httpunit.WebConversation;
@@ -44,7 +46,6 @@ public class TestsRessources {
 
 		assertThat(accueil, notNullValue());
 		assertThat(accueil.getTitle(), is("Mes stations"));
-		assertThat(accueil.getElementWithID("boutonRecharger"), notNullValue());
 		assertThat(accueil.getElementWithID("boutonMenu"), notNullValue());
 		assertThat(accueil.getElementWithID("boutonRetour"), notNullValue());
 	}
@@ -66,4 +67,14 @@ public class TestsRessources {
 		assertThat(stations.getLinkWith("Meriadeck"), notNullValue());
 		assertThat(stations.getLinkWith("Cauderan"), notNullValue());
 	}
+	
+	@Test
+	public void peutRécupérerLesInformationsDeLocalisation() {
+		ClientResource ressource = new ClientResource("http://localhost:12121/stations.json");
+		
+		ressource.get();
+		
+		assertThat(ressource.getStatus(), is(Status.SUCCESS_OK));
+	}
+	
 }

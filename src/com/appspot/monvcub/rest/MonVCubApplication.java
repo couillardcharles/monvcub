@@ -12,6 +12,7 @@ public class MonVCubApplication extends Application {
 
 		router.attach("/", RessourceAccueil.class);
 		router.attach("/stations", RessourceStations.class);
+		router.attach("/stations.json", RessourceStationsJSON.class);
 		router.attach("/mes-stations", RessourceMesStations.class);
 		return router;
 	}

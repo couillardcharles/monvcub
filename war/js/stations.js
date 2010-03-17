@@ -83,6 +83,30 @@ function chargerCarte() {
 	var latlng = new google.maps.LatLng(44.835178,-0.577126);
 	var myOptions = {zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP};
 	var map = new google.maps.Map(document.getElementById("carte"), myOptions);
+	   
+	$.getJSON('/stations.json', function(data) {
+		for (var i = 0; i < data.length; i++) {
+			créerMarker(data[i], map);
+		}
+	});
+	
+	getGeoLocalisation(map);
+}
+
+function créerMarker(station, map) {
+	var infowindow = new google.maps.InfoWindow({
+		content: "<h1>" + station.titre + "</h1>" + station.adresse
+	});
+
+	var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(station.latitude, station.longitude), 
+        map: map,
+        title: station.titre
+    });
+	
+	google.maps.event.addListener(marker, 'click', function() {
+		  infowindow.open(map,marker);
+	});
 }
 
 function getIndex(tableau, element) {
@@ -93,3 +117,16 @@ function getIndex(tableau, element) {
 	}
 	return -1;
 };
+
+function getGeoLocalisation(map) {
+	navigator.geolocation.getCurrentPosition(LocationOK);
+
+	function LocationOK(position)
+	{
+	  var marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+	        map: map,
+	        icon: '../images/flag.png'
+	    });
+	}
+}

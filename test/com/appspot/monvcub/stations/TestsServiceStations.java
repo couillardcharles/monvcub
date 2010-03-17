@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.htmlparser.util.ParserException;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,12 +34,12 @@ public class TestsServiceStations {
 		Station station = stations.get(stations.size()-1);
 
 		assertThat(station.getNom(), is("Xaintrailles"));
-		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(15));
+		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(16));
 		assertThat(station.getIdentifiant(), is(26));
 	}
 	
 	@Test
-	public void peutFiltrerLesStationsEtLesOrdonnées() throws ParserException, IOException {
+	public void peutFiltrerLesStationsEtLesOrdonner() throws ParserException, IOException {
 		List<Integer> stationsPréférées = Lists.newArrayList(1, 31);
 		
 		List<Station> stations = new ServiceStations().getStations(stationsPréférées);
@@ -45,6 +47,14 @@ public class TestsServiceStations {
 		assertThat(stations.size(), is(2));
 		assertThat(stations.get(0).getNom(), is("Cauderan"));
 		assertThat(stations.get(1).getNom(), is("Meriadeck"));
+	}
+	
+	@Test
+	public void peutRécupérerLesStationsJson() throws IOException, JSONException {
+		JSONArray stationsJson = new ServiceStations().getStationsJson();
+		
+		assertThat(stationsJson, notNullValue());
+		assertThat(stationsJson.length(), is(141));
 	}
 
 	private List<Station> stations;
