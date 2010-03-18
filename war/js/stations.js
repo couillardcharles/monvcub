@@ -7,7 +7,7 @@ $(function() {
 		localStorage.stations = (localStorage.stations || "");
 		var stationsSelectionnees = localStorage.stations.split(",");
 		
-		var index = getIndex(stationsSelectionnees, identifiant);
+		var index = $.inArray(identifiant, stationsSelectionnees);
 		if (index != -1) {
 			stationsSelectionnees.splice(index, 1);
 		} else {
@@ -108,15 +108,6 @@ function créerMarker(station, map) {
 		  infowindow.open(map,marker);
 	});
 }
-
-function getIndex(tableau, element) {
-	for (var i = 0; i < tableau.length; i++) {
-		if (tableau[i] == element) {
-			return i;
-		}
-	}
-	return -1;
-};
 
 function getGeoLocalisation(map) {
 	navigator.geolocation.getCurrentPosition(LocationOK);
