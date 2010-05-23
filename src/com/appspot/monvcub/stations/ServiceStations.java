@@ -15,7 +15,6 @@ import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
 
 import com.google.appengine.repackaged.com.google.common.base.Predicate;
@@ -47,8 +46,7 @@ public class ServiceStations {
 
 	private String getHtml(String uri) throws IOException {
 		ClientResource ressource = new ClientResource(uri);
-		Representation representation = ressource.get();
-		return representation.getText();
+		return ressource.get().getText();
 	}
 
 	public List<Station> getStations(final List<Integer> stationsPréférées) throws ParserException, IOException {

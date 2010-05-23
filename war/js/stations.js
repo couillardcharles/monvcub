@@ -81,7 +81,7 @@ function chargerCarte() {
 		chargerStations();
 	});
 	var latlng = new google.maps.LatLng(44.835178,-0.577126);
-	var myOptions = {zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP};
+	var myOptions = {zoom: 12, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP, mapTypeControlOptions : {mapTypeIds: []}};
 	var map = new google.maps.Map(document.getElementById("carte"), myOptions);
 	   
 	$.getJSON('/stations.json', function(data) {
@@ -95,7 +95,7 @@ function chargerCarte() {
 
 function créerMarker(station, map) {
 	var infowindow = new google.maps.InfoWindow({
-		content: "<h1>" + station.titre + "</h1>" + station.adresse + " " + station.velos + " " + station.places
+		content: "<h1>" + station.titre + "</h1>" + station.adresse + "<br>Vélos disponibles: " + station.velos + "<br>Places disponibles: " + station.places
 	});
 	var marker = new google.maps.Marker({
         position: new google.maps.LatLng(station.latitude, station.longitude), 
