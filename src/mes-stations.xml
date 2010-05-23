@@ -2,6 +2,13 @@
 	#if ( $stations.size() == 0)
 	<li>Aucune station sélectionnée. Cliquer sur Menu.</li>
 	#else
+	<li>
+		<a href="#">Stations</a>
+		<div class="statut">
+			<span>V.</span>
+			<span>P.</span>
+		</div>
+	</li>
 	#foreach ( $station in $stations)
 	<li>
 		<a href="#">$station.Nom</a>

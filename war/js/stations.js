@@ -95,18 +95,30 @@ function chargerCarte() {
 
 function créerMarker(station, map) {
 	var infowindow = new google.maps.InfoWindow({
-		content: "<h1>" + station.titre + "</h1>" + station.adresse
+		content: "<h1>" + station.titre + "</h1>" + station.adresse + " " + station.velos + " " + station.places
 	});
-
 	var marker = new google.maps.Marker({
         position: new google.maps.LatLng(station.latitude, station.longitude), 
         map: map,
-        title: station.titre
+        title: station.titre,
+        icon : getIcon(station)
     });
 	
 	google.maps.event.addListener(marker, 'click', function() {
 		  infowindow.open(map,marker);
 	});
+}
+
+function getIcon(station) {
+	var icon = '../images/m_vert.png';
+	if (station.places == "0" && station.velos == "0") {
+		icon = '../images/m_gris.png'; 
+	} else if (station.places == "0") {
+		icon = '../images/m_orange.png';
+	} else if (station.velos == "0") {
+		icon = '../images/m_rouge.png';
+	}
+	return icon;
 }
 
 function getGeoLocalisation(map) {

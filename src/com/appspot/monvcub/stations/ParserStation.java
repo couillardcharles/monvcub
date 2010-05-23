@@ -42,7 +42,17 @@ public class ParserStation {
 		System.out.println(texte);
 		résultat.put("titre", getNomStation(texte));
 		résultat.put("adresse", getAdresseStation(texte));
+		résultat.put("velos", getVélos(texte));
+		résultat.put("places", getPlaces(texte));
 		return résultat;
+	}
+
+	private String getPlaces(String texte) {
+		return getEntier(texte, PATTERN_PLACES_DISPONIBLES);
+	}
+	
+	private String getVélos(String texte) {
+		return getEntier(texte, PATTERN_VELOS_DISPONIBLES);
 	}
 
 	private String getAdresseStation(String texte) {
@@ -55,10 +65,21 @@ public class ParserStation {
 
 	private String getTexte(String texte, Pattern pattern) {
 		Matcher matcher = pattern.matcher(texte);
-		matcher.find();
-		return matcher.group(1);
+		if (matcher.find()) {
+			return matcher.group(1);
+		}
+		return "";
+	}
+	
+	private String getEntier(String texte, Pattern pattern) {
+		String valeur = getTexte(texte, pattern);
+		return (valeur.isEmpty()) ? "0" : valeur;
 	}
 
 	public static final Pattern PATTERN_NOM_STATION = Pattern.compile("#\\d* \\- (.*)</div>\\n.*gmap\\-adresse");
-	public static final Pattern PATTERN_ADRESSE_STATION = Pattern.compile("<div class=.*gmap\\-adresse.*>(.*)</div>(<div.*gmap\\-velos|<p>)");
+	public static final Pattern PATTERN_ADRESSE_STATION = Pattern
+			.compile("<div class=.*gmap\\-adresse.*>(.*)</div>(<div.*gmap\\-velos|<p>)");
+	private static final Pattern PATTERN_PLACES_DISPONIBLES = Pattern
+			.compile("<strong>.*</strong>.*\\n.*<strong>(.*)</strong> places disponibles.*</td></tr></table>");
+	private static final Pattern PATTERN_VELOS_DISPONIBLES = Pattern.compile("<strong>(.*)</strong> vélos");
 }
