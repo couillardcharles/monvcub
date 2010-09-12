@@ -39,8 +39,8 @@ public class ParserStation {
 		résultat.put("latitude", stationJSon.get("latitude"));
 		résultat.put("longitude", stationJSon.get("longitude"));
 		String texte = stationJSon.get("text").toString();
-		System.out.println(texte);
 		résultat.put("titre", getNomStation(texte));
+		résultat.put("identifiant", getIdentifiant(texte));
 		résultat.put("adresse", getAdresseStation(texte));
 		résultat.put("velos", getVélos(texte));
 		résultat.put("places", getPlaces(texte));
@@ -50,7 +50,7 @@ public class ParserStation {
 	private String getPlaces(String texte) {
 		return getEntier(texte, PATTERN_PLACES_DISPONIBLES);
 	}
-	
+
 	private String getVélos(String texte) {
 		return getEntier(texte, PATTERN_VELOS_DISPONIBLES);
 	}
@@ -63,6 +63,10 @@ public class ParserStation {
 		return getTexte(texte, PATTERN_NOM_STATION);
 	}
 
+	private String getIdentifiant(String texte) {
+		return getTexte(texte, PATTERN_IDENTIFIANT_STATION);
+	}
+
 	private String getTexte(String texte, Pattern pattern) {
 		Matcher matcher = pattern.matcher(texte);
 		if (matcher.find()) {
@@ -70,14 +74,16 @@ public class ParserStation {
 		}
 		return "";
 	}
-	
+
 	private String getEntier(String texte, Pattern pattern) {
 		String valeur = getTexte(texte, pattern);
 		return (valeur.isEmpty()) ? "0" : valeur;
 	}
 
-	public static final Pattern PATTERN_NOM_STATION = Pattern.compile("#\\d* \\- (.*)</div>\\n.*gmap\\-adresse");
-	public static final Pattern PATTERN_ADRESSE_STATION = Pattern
+	private static final Pattern PATTERN_NOM_STATION = Pattern.compile("#\\d* \\- (.*)</div>\\n.*gmap\\-adresse");
+	private static final Pattern PATTERN_IDENTIFIANT_STATION = Pattern
+			.compile("#(.*) \\- .*</div>\\n.*gmap\\-adresse");
+	private static final Pattern PATTERN_ADRESSE_STATION = Pattern
 			.compile("<div class=.*gmap\\-adresse.*>(.*)</div>(<div.*gmap\\-velos|<p>)");
 	private static final Pattern PATTERN_PLACES_DISPONIBLES = Pattern
 			.compile("<strong>.*</strong>.*\\n.*<strong>(.*)</strong> places disponibles.*</td></tr></table>");

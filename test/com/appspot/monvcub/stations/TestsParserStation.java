@@ -19,6 +19,7 @@ public class TestsParserStation {
 		assertThat(résultat.get("latitude").toString(), is("44.83805"));
 		assertThat(résultat.get("longitude").toString(), is("-0.58417"));
 		assertThat(résultat.get("titre").toString(), is("Meriadeck"));
+		assertThat(résultat.get("identifiant").toString(), is("1"));
 		assertThat(résultat.get("adresse").toString(), is("RUE CLAUDE BONNIER FACE À LA STATION "));
 		assertThat(résultat.get("velos").toString(), is("0"));
 		assertThat(résultat.get("places").toString(), is("20"));

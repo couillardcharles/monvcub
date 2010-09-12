@@ -17,6 +17,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.restlet.ext.json.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/org.json.jar"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/App Engine (2)"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

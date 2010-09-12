@@ -3,17 +3,7 @@ $(function() {
 	chargerMesStations();
 	$("#stations li a").live("click", function(e) {
 		var li = $(e.target).closest("li");
-		var identifiant = li.attr("identifiant");
-		localStorage.stations = (localStorage.stations || "");
-		var stationsSelectionnees = localStorage.stations.split(",");
-		
-		var index = $.inArray(identifiant, stationsSelectionnees);
-		if (index != -1) {
-			stationsSelectionnees.splice(index, 1);
-		} else {
-			stationsSelectionnees.push(identifiant);
-		}
-		localStorage.stations = stationsSelectionnees.join(",");
+		ajouteSupprimeStation(li.attr("identifiant"));
 		selectionnerStations();
 		return false;
 	});
@@ -27,7 +17,30 @@ $(function() {
 		chargerMesStations();
 		return false;
 	});
+	$(".ajout-station").live("click", function(e){
+		var identifiant = $(e.target).attr("identifiant");
+		ajouteSupprimeStation(identifiant);
+		$(e.target).closest("p").text("Station sélectionnée").css("color", "#EB6100");
+	});
 });
+
+function ajouteSupprimeStation(identifiant) {
+	var index = indexStation(identifiant);
+	var stationsSelectionnees = localStorage.stations.split(",");
+	if (index != -1) {
+		stationsSelectionnees.splice(index, 1);
+	} else {
+		stationsSelectionnees.push(identifiant);
+	}
+	localStorage.stations = stationsSelectionnees.join(",");
+}
+
+function indexStation(identifiant) {
+	localStorage.stations = (localStorage.stations || "");
+	var stationsSelectionnees = localStorage.stations.split(",");
+	
+	return $.inArray(identifiant, stationsSelectionnees);
+}
 
 function toggle(titre) {
 	$("#boutonRetour").toggle();
@@ -94,8 +107,15 @@ function chargerCarte() {
 }
 
 function créerMarker(station, map) {
+	var infoStation = $("<div>");
+	if (indexStation(station.identifiant) == -1) {
+		infoStation.append($("<p>").append($("<button class='ajout-station' identifiant='" + station.identifiant + "'>").text("Ajouter à mes stations")));
+	} else {
+		infoStation.append($("<p>").text("Station déjà sélectionnée").css("color", "#EB6100"));
+	}
+	
 	var infowindow = new google.maps.InfoWindow({
-		content: "<h1>" + station.titre + "</h1>" + station.adresse + "<br>Vélos disponibles: " + station.velos + "<br>Places disponibles: " + station.places
+		content: "<h1>" + station.titre + "</h1>" + station.adresse + "<br>Vélos disponibles: " + station.velos + "<br>Places disponibles: " + station.places + "<br>" + infoStation.html()
 	});
 	var marker = new google.maps.Marker({
         position: new google.maps.LatLng(station.latitude, station.longitude), 
