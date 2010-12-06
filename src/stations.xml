@@ -1,7 +1,35 @@
-<ul>
-	#foreach ( $station in $stations)
-	<li identifiant="$station.identifiant">
-		<a href="#">$station.Nom</a>
-	</li>
-	#end
-</ul>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="apple-touch-startup-image" href="images/startup.png" />
+		<link rel="stylesheet" href="jquerymobile/jquery.mobile-1.0a2.min.css" />
+		<link rel="stylesheet" href="defaut.css" />
+		<script type="text/javascript" src="js/jquery.last.min.js"></script>
+		<script src="jquerymobile/jquery.mobile-1.0a2.min.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="js/monvcub.js"></script>
+	</head>
+	<body>
+		<div data-role="page" data-theme="b" class="page-stations">
+			<div data-role="header" data-theme="b"  data-position="fixed">
+				<h1>Stations</h1>
+				<a data-role="button" id="boutonPlan" href="/plan" data-icon="grid" class="ui-btn-right">Plan</a>
+			</div>
+			<div data-role="content"> 
+				<ul data-role="listview" data-filter="true">
+					#foreach ( $station in $stations)
+					<li identifiant="$station.identifiant">
+						<a href="#">$station.Nom</a>
+					</li>
+					#end
+				</ul>
+			</div>
+			<div data-role="footer" data-theme="b"><h4>Mon VCub</h4></div>
+		</div>
+	</body>
+</html>
+

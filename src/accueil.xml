@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -5,36 +6,25 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<link rel="apple-touch-startup-image" href="images/startup.png" />
+		<link rel="stylesheet" href="jquerymobile/jquery.mobile-1.0a2.min.css" />
+		<link rel="stylesheet" href="defaut.css" />
 		<script type="text/javascript" src="js/jquery.last.min.js"></script>
+		<script src="jquerymobile/jquery.mobile-1.0a2.min.js"></script>
 		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-		<script type="text/javascript" src="js/stations.js"></script>
-		
-		<link rel="stylesheet" href="defaut.css" type="text/css" />
-		<title>Mes stations</title>
+		<script type="text/javascript" src="js/monvcub.js"></script>
 	</head>
 	<body>
-		<script id="template-loader" type="text/html">
-			<ul>
-				<li>
-					<img src="images/ajax-loader.gif" />
-				</li>
-			</ul>
-		</script>
-		
-		<div id="header">
-			<h1><a href="#">Mes stations</a></h1>
-			<div id="boutonMenu" class="boutonAGauche"><a href="#">Menu</a></div>
-			<div id="boutonADroite"><a href="#"></a></div>
-			<div id="boutonRetour" class="boutonAGauche"><a href="#">Retour</a></div>
+		<div data-role="page" data-theme="b" class="page-mes-stations">
+			<div data-role="header" data-theme="b" data-position="fixed">
+				<h1>Mes Stations</h1>
+				<a data-role="button" id="boutonMenu" href="/stations" data-icon="gear" class="ui-btn-left">Menu</a>
+				<a data-role="button" id="boutonRechargement" href="#" data-icon="refresh" class="ui-btn-right">Rech.</a>
+			</div> 
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true" data-theme="c">
+				</ul>
+			</div>		
+			<div data-role="footer" data-theme="b"><h4>Mon VCub</h4></div>
 		</div>
-		<div id="content">
-			<div id="mes-stations">
-			
-			</div>
-			<div id="stations">
-			
-			</div>
-		</div>
-		<div id="carte"></div>
 	</body>
 </html>

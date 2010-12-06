@@ -27,7 +27,7 @@ public class TestsRessources {
 		composant = new Component();
 		composant.getServers().add(Protocol.HTTP, 12121);
 		composant.getClients().add(Protocol.HTTP);
-		MonVCubApplication application = new MonVCubApplication();
+		final MonVCubApplication application = new MonVCubApplication();
 		composant.getDefaultHost().attach(application);
 		Application.setCurrent(application);
 		if (composant.isStopped()) {
@@ -42,7 +42,7 @@ public class TestsRessources {
 
 	@Test
 	public void représenteBienLAccueil() throws SAXException, IOException {
-		WebResponse accueil = new WebConversation().getResponse("http://localhost:12121");
+		final WebResponse accueil = new WebConversation().getResponse("http://localhost:12121");
 
 		assertThat(accueil, notNullValue());
 		assertThat(accueil.getTitle(), is("Mes stations"));
@@ -52,7 +52,8 @@ public class TestsRessources {
 
 	@Test
 	public void représenteBienMesStations() throws IOException, SAXException {
-		WebResponse mesStations = new WebConversation().getResponse("http://localhost:12121/mes-stations?stations=1");
+		final WebResponse mesStations = new WebConversation()
+				.getResponse("http://localhost:12121/mes-stations?stations=1");
 
 		assertThat(mesStations, notNullValue());
 		assertThat(mesStations.getLinkWith("Meriadeck"), notNullValue());
@@ -61,20 +62,27 @@ public class TestsRessources {
 
 	@Test
 	public void représenteBienLesStations() throws IOException, SAXException {
-		WebResponse stations = new WebConversation().getResponse("http://localhost:12121/stations");
+		final WebResponse stations = new WebConversation().getResponse("http://localhost:12121/stations");
 
 		assertThat(stations, notNullValue());
 		assertThat(stations.getLinkWith("Meriadeck"), notNullValue());
 		assertThat(stations.getLinkWith("Cauderan"), notNullValue());
 	}
-	
+
 	@Test
 	public void peutRécupérerLesInformationsDeLocalisation() {
-		ClientResource ressource = new ClientResource("http://localhost:12121/stations.json");
-		
+		final ClientResource ressource = new ClientResource("http://localhost:12121/stations.json");
+
 		ressource.get();
-		
+
 		assertThat(ressource.getStatus(), is(Status.SUCCESS_OK));
 	}
-	
+
+	@Test
+	public void représenteBienLePlan() throws IOException, SAXException {
+		final WebResponse plan = new WebConversation().getResponse("http://localhost:12121/stations");
+
+		assertThat(plan, notNullValue());
+	}
+
 }

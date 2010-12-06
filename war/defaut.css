@@ -1,12 +1,3 @@
-body {
-	background-color: #ddd;
-	color: #222;
-	font-family: Helvetica;
-	font-size: 14px;
-	margin: 0;
-	padding: 0;
-}
-
 .en-maintenance {
 	color: #D1D1D1;
 }
@@ -19,150 +10,29 @@ body {
 	color: red;
 }
 
-h1 {
-	font-size : 16px;
+
+.page-mes-stations .ui-icon-arrow-r {
+	display: none;
 }
 
-#header h1 {
-    margin: 0;
-    padding: 0;
-}
-#header h1 a {
-    background-color: #ccc;
-    border-bottom: 1px solid #666;
-    color: #222;
-    display: block;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 0;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #fff;
-    background-image: -webkit-gradient(linear, left top, left bottom, 
-                                       from(#ccc), to(#999));
+.page-mes-stations span.station {
+	font-size: medium;
 }
 
-#header .boutonAGauche {
-    position: absolute;
-    top: 7px;
-    left: 6px;
-    height: 30px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
-    line-height: 28px;
+.page-mes-stations .ui-li .ui-btn-inner {
+	padding:0.3em 15px;
 }
 
-#header #boutonADroite {
-    position: absolute;
-    top: 7px;
-    right: 6px;
-    height: 30px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: rgba(0,0,0,0.6) 0px -1px 0px;
-    line-height: 28px;
-    border-width: 0 8px 0 8px;
-    -webkit-border-image: url(images/button.png) 0 8 0 8;
-    -moz-border-image: url(images/button.png) 0 8 0 8;
+.page-mes-stations ul li .ui-li-aside span
+{
+	font-weight:bold;
+	font-size:14px;
 }
 
-#header div a {
-	text-decoration : none;
-	color : white;
-}
-
-#header #boutonMenu {
-    border-width: 0 8px 0 8px;
-    -webkit-border-image: url(images/button.png) 0 8 0 8;
-    -moz-border-image: url(images/button.png) 0 8 0 8;
-}
-
-#header #boutonRetour {
-    border-width: 0 8px 0 14px;
-    -webkit-border-image: url(images/back_button.png) 0 8 0 14;
-    -moz-border-image: url(images/back_button.png) 0 8 0 14;
-}
-
-#content {
-	padding: 10px;
-}
-
-#content ul {
-	list-style: none;
-	margin: 10px;
-	padding: 0;
-}
-
-#content ul li {
-	background-color: #FFFFFF;
-	border: 1px solid #999999;
-	display: block;
-	font-size: 17px;
-	font-weight: bold;
-	margin-bottom: -1px;
-	padding: 12px 10px;
-}
-
-#content ul li:first-child {
-	-webkit-border-top-left-radius: 8px;
-	-webkit-border-top-right-radius: 8px;
-	-moz-border-radius-topleft : 8px;
-	-moz-border-radius-topright : 8px;
-}
-
-#content ul li:last-child {
-	-webkit-border-bottom-left-radius: 8px;
-	-webkit-border-bottom-right-radius: 8px;
-	-moz-border-radius-bottomleft : 8px;
-	-moz-border-radius-bottomright : 8px;
-}
-
-#content ul li a {
-	text-decoration: none;
-	color: #222222;
-}
-
-#content ul li img {
-	margin: 0 auto;
-	width: 64px;
-	display: block; 
-}
-
-#content .statut {
-	float: right;
-	text-align: left;
-}
-
-#content .statut span {
-	position:absolute;
-	right:60px;
-}
-
-#content .statut span.en-maintenance{
-	position:absolute;
-	right:30px;
-}
-
-#content .statut span + span{
-	right:30px;
-}
-
-#content img {
-	text-align: center;
-}
-
-#content li.selectionnee {
+.selectionnee .ui-icon-arrow-r{
 	background-color : #EB6100;
 }
 
-#content li.selectionnee a{
-	color : white;
-}
-
-#carte {
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	height: 100%;
+#carte h1 {
+	font-size:1em;
 }
