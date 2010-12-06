@@ -1,8 +1,8 @@
 <li data-role="list-divider"><span class="station">Stations</span>
 <p class="ui-li-aside">
-<span>V&eacute;los Disp.</span>
+<span>V&eacute;los</span>
 <br />
-<span>Places Disp.</span>
+<span>Places</span>
 </p>
 </li>
 #if ( $stations.size() == 0)
