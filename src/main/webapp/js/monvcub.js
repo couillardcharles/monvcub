@@ -1,9 +1,3 @@
-$(document).bind("mobileinit", function(){
-	$.extend(  $.mobile , {
-		loadingMessage: "Chargement"
-	});
-});
-
 $(function() {
 	chargerMesStations();
 	$("#boutonRechargement").live("click", function() {
@@ -32,11 +26,11 @@ $(function() {
 });
 
 function chargerMesStations() {
-	$.mobile.pageLoading();	
+	$.mobile.showPageLoadingMsg();	
 	localStorage.stations = (localStorage.stations || "");
 	$.get("/mes-stations?stations=" + localStorage.stations, function(data) {
 		$(".page-mes-stations ul").html(data).listview("refresh");
-		$.mobile.pageLoading( true );	
+		$.mobile.hidePageLoadingMsg();	
 	});
 };
 
@@ -62,7 +56,7 @@ function selectionnerStations() {
 	$(".page-stations ul li").removeClass("selectionnee");
 	if (localStorage.stations != undefined) {
 		var stations = localStorage.stations.split(",");
-		for ( i = 0; i < stations.length; i++) {
+		for (var i = 0; i < stations.length; i++) {
 			$(".page-stations ul li[identifiant="+ stations[i] +"]").addClass("selectionnee");
 		}
 	}
@@ -121,7 +115,7 @@ function getGeoLocalisation(map) {
 
 	function LocationOK(position)
 	{
-	  var marker = new google.maps.Marker({
+	  new google.maps.Marker({
 	        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
 	        map: map,
 	        icon: '../images/flag.png'

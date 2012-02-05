@@ -17,6 +17,6 @@ public class RessourceStations extends ServerResource {
 	public Representation represente() throws ParserException, IOException {
 		Map<String, Object> données = Maps.newHashMap();
 		données.put("stations", new ServiceStations().getStations());
-		return FabriqueTemplate.créeTemplate("stations.xml", données);
+		return FabriqueTemplate.créeTemplate("stations.ftl", données);
 	}
 }

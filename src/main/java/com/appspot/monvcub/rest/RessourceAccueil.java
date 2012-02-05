@@ -7,6 +7,6 @@ import org.restlet.resource.ServerResource;
 public class RessourceAccueil extends ServerResource {
 	@Get
 	public Representation represente() {
-		return FabriqueTemplate.créeTemplate("accueil.xml");
+		return FabriqueTemplate.créeTemplate("accueil.ftl");
 	}
 }

@@ -94,7 +94,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.restlet.gae</groupId>
-			<artifactId>org.restlet.ext.velocity</artifactId>
+			<artifactId>org.restlet.ext.freemarker</artifactId>
 			<version>${restlet.version}</version>
 		</dependency>
 		<dependency>

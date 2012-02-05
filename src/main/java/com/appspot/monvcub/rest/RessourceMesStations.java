@@ -38,7 +38,7 @@ public class RessourceMesStations extends ServerResource {
 	public Representation represente() throws ParserException, IOException {
 		Map<String, Object> données = Maps.newHashMap();
 		données.put("stations", new ServiceStations().getStations(stationsPréférées));
-		return FabriqueTemplate.créeTemplate("mes-stations.xml", données);
+		return FabriqueTemplate.créeTemplate("mes-stations.ftl", données);
 	}
 
 	List<Integer> stationsPréférées;
