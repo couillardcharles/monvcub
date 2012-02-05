@@ -10,7 +10,10 @@
 	<packaging>war</packaging>
 
 	<name>monvcub</name>
-
+	<scm>
+		<connection>scm:git:ssh://git@github.com:couillardcharles/monvcub.git</connection>
+		<url>git:ssh://git@github.com:couillardcharles/monvcub.git</url>
+	</scm>
 	<dependencies>
 
 		<!-- Google App Engine meta-package -->
