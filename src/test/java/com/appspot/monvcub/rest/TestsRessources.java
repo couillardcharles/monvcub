@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.data.Protocol;
@@ -40,7 +39,6 @@ public class TestsRessources {
 		composant.stop();
 	}
 
-	@Test
 	public void représenteBienLAccueil() throws SAXException, IOException {
 		final WebResponse accueil = new WebConversation().getResponse("http://localhost:12121");
 
@@ -50,7 +48,6 @@ public class TestsRessources {
 		assertThat(accueil.getElementWithID("boutonRetour"), notNullValue());
 	}
 
-	@Test
 	public void représenteBienMesStations() throws IOException, SAXException {
 		final WebResponse mesStations = new WebConversation()
 				.getResponse("http://localhost:12121/mes-stations?stations=1");
@@ -60,7 +57,6 @@ public class TestsRessources {
 		assertThat(mesStations.getElementsWithAttribute("class", "statut"), notNullValue());
 	}
 
-	@Test
 	public void représenteBienLesStations() throws IOException, SAXException {
 		final WebResponse stations = new WebConversation().getResponse("http://localhost:12121/stations");
 
@@ -69,7 +65,6 @@ public class TestsRessources {
 		assertThat(stations.getLinkWith("Cauderan"), notNullValue());
 	}
 
-	@Test
 	public void peutRécupérerLesInformationsDeLocalisation() {
 		final ClientResource ressource = new ClientResource("http://localhost:12121/stations.json");
 
@@ -78,7 +73,6 @@ public class TestsRessources {
 		assertThat(ressource.getStatus(), is(Status.SUCCESS_OK));
 	}
 
-	@Test
 	public void représenteBienLePlan() throws IOException, SAXException {
 		final WebResponse plan = new WebConversation().getResponse("http://localhost:12121/stations");
 
