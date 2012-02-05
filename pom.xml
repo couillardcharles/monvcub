@@ -178,7 +178,7 @@
 		<downloadSources>true</downloadSources>
 		<gae.version>1.5.3</gae.version>
 		<gae.application.version>test</gae.application.version>
-		<restlet.version>2.0.11</restlet.version>
+		<restlet.version>2.1-RC2</restlet.version>
 	</properties>
 	<profiles>
 		<profile>
