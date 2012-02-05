@@ -32,7 +32,7 @@ public class TestsServiceStations {
 		final Station station = stations.get(stations.size() - 1);
 
 		assertThat(station.getNom(), is("Xaintrailles"));
-		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(15));
+		assertThat(station.getVelosDisponibles() + station.getPlacesDisponibles(), is(16));
 		assertThat(station.getIdentifiant(), is(26));
 	}
 
