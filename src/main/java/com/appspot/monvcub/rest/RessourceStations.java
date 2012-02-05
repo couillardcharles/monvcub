@@ -9,7 +9,7 @@ import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
 import com.appspot.monvcub.stations.ServiceStations;
-import com.google.appengine.repackaged.com.google.common.collect.Maps;
+import com.google.common.collect.Maps;
 
 public class RessourceStations extends ServerResource {
 

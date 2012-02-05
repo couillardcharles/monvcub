@@ -19,9 +19,9 @@ import org.restlet.Request;
 import org.restlet.data.Method;
 import org.restlet.data.Protocol;
 
-import com.google.appengine.repackaged.com.google.common.base.Predicate;
-import com.google.appengine.repackaged.com.google.common.collect.Iterables;
-import com.google.appengine.repackaged.com.google.common.collect.Lists;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 
 public class ServiceStations {
 

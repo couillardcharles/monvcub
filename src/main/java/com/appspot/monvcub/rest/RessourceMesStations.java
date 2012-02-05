@@ -11,9 +11,9 @@ import org.restlet.resource.Get;
 import org.restlet.resource.ServerResource;
 
 import com.appspot.monvcub.stations.ServiceStations;
-import com.google.appengine.repackaged.com.google.common.base.Function;
-import com.google.appengine.repackaged.com.google.common.collect.Lists;
-import com.google.appengine.repackaged.com.google.common.collect.Maps;
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 public class RessourceMesStations extends ServerResource {
 
@@ -22,7 +22,7 @@ public class RessourceMesStations extends ServerResource {
 		String stations = getQuery().getFirstValue("stations", "");
 		stationsPréférées = Lists.transform(Arrays.asList(stations.split(",")), new Function<String, Integer>() {
 			@Override
-			public Integer apply(String valeur) {
+			public Integer apply(final String valeur) {
 				Integer résultat;
 				try {
 					résultat = Integer.parseInt(valeur);
@@ -33,7 +33,7 @@ public class RessourceMesStations extends ServerResource {
 			}
 		});
 	}
-	
+
 	@Get
 	public Representation represente() throws ParserException, IOException {
 		Map<String, Object> données = Maps.newHashMap();

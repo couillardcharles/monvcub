@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.appengine.repackaged.com.google.common.collect.Lists;
+import com.google.common.collect.Lists;
 
 public class TestsServiceStations {
 
